@@ -1,0 +1,37 @@
+site_name: Morsep
+
+theme:
+  name: "material"
+  palette:
+    - scheme: slate
+      primary: green
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+    - scheme: default
+      primary: green
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+plugins:
+  mkdocstrings:
+    handlers:
+      python:
+        paths: [..]
+        options:
+          docstring_style: numpy
+          show_source: false
+          allow_inspection: true
+          group_by_category: true
+          heading_level: 3
+          show_root_heading: true
+          show_if_no_docstring: true
+          inherited_members: true
+          members_order: source
+          separate_signature: true
+          filters: ["!^_"]
+          merge_init_into_class: true
