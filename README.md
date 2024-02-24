@@ -1,7 +1,7 @@
 # morsep
-Morse code Protocol written in python, this project is for sake of learning and fun and does not have real-world use cases except that you want to talk to your friends with ``Morse code``. <br>
-This project has all the features that a simple protocol has, ``request format``, ``encoder``, ``decoder``. <br>
-``Morsep`` is working on top of ``TCP`` connections, and the structure of is is ``Request``-``Response``.
+Morse code Protocol written in python, this project is for sake of learning and fun and does not have real-world use cases except that you want to talk to your friends with **Morse code**. <br>
+This project has all the features that a simple protocol has, **request format**, **encoder**, **decoder**. <br>
+**Morsep** is working on top of **TCP** connections, and the structure is ``Request``-``Response``.
 
 ## Request Format
 Morep request example:
