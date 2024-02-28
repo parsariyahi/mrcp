@@ -1,4 +1,4 @@
-from morsep import Decoder
+from mrcp import Decoder
 
 
 def test_decode_morse_code_to_string():

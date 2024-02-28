@@ -1,5 +1,5 @@
-from morsep import Encoder
-from morsep import Decoder
+from mrcp import Encoder
+from mrcp import Decoder
 
 
 def test_translator_functionality():

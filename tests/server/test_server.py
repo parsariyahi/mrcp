@@ -1,6 +1,6 @@
 import socket
 
-from morsep import Server
+from mrcp import Server
 
 def test_server_listening():
     server = Server()

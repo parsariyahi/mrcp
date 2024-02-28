@@ -6,16 +6,16 @@ from .settings import WORD_DELIMITER, MORSE_WORD_DELIMITER, CHAR_DELIMITER
 
 class Decoder:
     def __init__(self, mapper: Optional[Dict[str, str]] = None, word_delimiter: Optional[str] = None, morse_word_delimiter: Optional[str] = None, char_delimiter: Optional[str] = None) -> None:
-        """``Morse code`` Decoder, This class uses ``Morsep`` style for decoding the ``Morse code`` codes.
+        """``Morse code`` Decoder, This class uses ``mrcp`` style for decoding the ``Morse code`` codes.
 
         Parameters
         ----------
         mapper : Dict[str: str], optional
-            ``mapper`` is the main ``to_morse`` mapper, we use ``morsep._translator.maps.FROM_MORSE_MAPPER`` if you set it to ``None``, by default ``None``
+            ``mapper`` is the main ``to_morse`` mapper, we use ``mrcp._translator.maps.FROM_MORSE_MAPPER`` if you set it to ``None``, by default ``None``
         word_delimiter : Optional[str], optional
-            ``word_delimiter`` is the seperator for each word in our decoder, we use ``morsep._translator.settings.WORD_DELIMITER`` if you set  it to ``None``, by default ``None``
+            ``word_delimiter`` is the seperator for each word in our decoder, we use ``mrcp._translator.settings.WORD_DELIMITER`` if you set  it to ``None``, by default ``None``
         char_delimiter : Optional[str], optional
-            ``char_delimiter`` is the seperator for each char in our decoder, we use ``morsep._translator.settings.CHAR_DELIMITER`` if you set  it to ``None``, by default ``None``
+            ``char_delimiter`` is the seperator for each char in our decoder, we use ``mrcp._translator.settings.CHAR_DELIMITER`` if you set  it to ``None``, by default ``None``
         """
         self.mapper = mapper if mapper else FROM_MORSE_MAPPER
         self.word_delimiter = word_delimiter if word_delimiter else WORD_DELIMITER
@@ -23,7 +23,7 @@ class Decoder:
         self.char_delimiter = char_delimiter if char_delimiter else CHAR_DELIMITER
 
     def decode(self, code: str) -> str:
-        """decode the ``Morse code`` with the given ``mapper``, by default it will use the ``morsep._translator.maps.FROM_MORSE_MAPPER``.
+        """decode the ``Morse code`` with the given ``mapper``, by default it will use the ``mrcp._translator.maps.FROM_MORSE_MAPPER``.
 
         Parameters
         ----------
@@ -51,7 +51,7 @@ class Decoder:
         return f"{self.word_delimiter}".join(decoded)
 
     def _normalize_words(self, code: str) -> List[str]:
-        """normilize the words inside the ``Morse code`` with the given ``word_delimiper``, by default it will use the ``morsep._translator.settings.WORD_DELIMITER``.
+        """normilize the words inside the ``Morse code`` with the given ``word_delimiper``, by default it will use the ``mrcp._translator.settings.WORD_DELIMITER``.
 
         Parameters
         ----------
