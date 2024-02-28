@@ -32,7 +32,7 @@ class Server:
         while True:
             request, _ = await loop.sock_accept(self.socket)
             handler = RequestHandler(request)
-            loop.create_task(handler.get_data())
+            loop.create_task(handler.handle_request())
 
     async def get_all_tasks(self):
         print("get all task running \n")
