@@ -12,20 +12,16 @@ class Server:
     def start(self):
         loop = asyncio.get_event_loop()
         self._prepare_socket()
-        loop.create_task(self.listen())
+        loop.create_task(self._listen())
         loop.run_forever()
         
-    async def _main(self):
-        loop = asyncio.get_event_loop()
-        loop.create_task(self._prepare_server())
-
     def _prepare_socket(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.bind((self.host, self.port))
         self.socket.listen(10)
         self.socket.setblocking(False)
 
-    async def listen(self):
+    async def _listen(self):
         print("running listen server \n")
         loop = asyncio.get_event_loop()
 
