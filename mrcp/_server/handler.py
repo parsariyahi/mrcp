@@ -4,6 +4,7 @@ import socket
 from .._translator.decoder import Decoder
 from ..settings import Settings
 
+
 class RequestHandler:
     def __init__(self, request: socket.socket) -> None:
         self.request = request 
@@ -23,7 +24,7 @@ class RequestHandler:
         loop = asyncio.get_event_loop()
         chunk_size_header = (await loop.sock_recv(
                 self.request,
-                Settings.CHUNK_SIZE_BIT_SIZE)
+                Settings.CHUNK_BIT_SIZE)
                 ).decode("utf-8")
         # Replace the spaces with nothing
         chunk_size_header = chunk_size_header.replace(" ", "")
