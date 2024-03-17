@@ -14,7 +14,6 @@ class RequestHandler:
         chunk_size = await self.get_chunk_size()
         data = (await loop.sock_recv(self.request, chunk_size)).decode("utf-8")
         self.request.close()
-        print(data)
         d = Decoder()
         decoded_data = d.decode(data)
         print("raw data: ", data, "\ndecoded data: ", decoded_data)
@@ -31,15 +30,3 @@ class RequestHandler:
         # Split the key, value
         chunk_header = chunk_size_header.split("=")
         return int(chunk_header[1])
-
-    async def old_get_data(self):
-        loop = asyncio.get_event_loop()
-        data = (await loop.sock_recv(self.request, 50)).decode("utf-8")
-        # await loop.sock_sendall(self.request, "I get that thanks".encode("utf-8")) #Just for testing the reponse part of the request.
-        self.request.close()
-
-        d = Decoder()
-        # decoded_data = d.decode(data)
-        # print("raw data: ", data, "\ndecoded data: ", decoded_data)
-        print("raw data: ", data)
-        return data
